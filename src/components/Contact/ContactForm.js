@@ -1,19 +1,59 @@
-import React from "react";
-import { Form, Button, Container, Row, Col } from "react-bootstrap";
+import React, { useState } from "react";
+import { Form, Button, Container, Row, Col, Alert } from "react-bootstrap";
+import emailjs from "@emailjs/browser";
+
 import Particle from "../Particle";
 
 const ContactForm = () => {
+  const [statusMessage, setStatusMessage] = useState("");
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        process.env.REACT_APP_EMAILJS_SERVICE_ID,
+        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+        e.target,
+        process.env.REACT_APP_EMAILJS_USER_ID
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          setStatusMessage("Message sent successfully!");
+        },
+        (error) => {
+          console.log(error.text);
+          setStatusMessage(
+            "Failed to send the message, please try again later."
+          );
+        }
+      );
+
+    e.target.reset();
+  };
+
   return (
     <Container>
       <Particle />
-      <Form>
+      <Form onSubmit={sendEmail}>
         <Row className="justify-content-left">
           <Col md={8}>
+            {statusMessage && (
+              <Alert
+                variant={
+                  statusMessage.includes("successfully") ? "success" : "danger"
+                }
+              >
+                {statusMessage}
+              </Alert>
+            )}
             <Form.Group controlId="formName" className="mb-3">
               <Form.Label className="text-light">Name</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Name"
+                name="name"
                 required
                 className="bg-dark text-light"
               />
@@ -24,6 +64,7 @@ const ContactForm = () => {
               <Form.Control
                 type="email"
                 placeholder="Email"
+                name="email"
                 required
                 className="bg-dark text-light"
               />
@@ -34,6 +75,7 @@ const ContactForm = () => {
               <Form.Control
                 type="text"
                 placeholder="Subject"
+                name="subject"
                 required
                 className="bg-dark text-light"
               />
@@ -45,6 +87,7 @@ const ContactForm = () => {
                 as="textarea"
                 rows={3}
                 placeholder="Message"
+                name="message"
                 required
                 className="bg-dark text-light"
               />
