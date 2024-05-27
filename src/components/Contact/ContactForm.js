@@ -4,21 +4,13 @@ import Particle from "../Particle";
 
 const ContactForm = () => {
   return (
-    <Container
-      style={{
-        borderRadius: "22px",
-        transition: "all 0.3s",
-        padding: "2rem",
-        marginTop: "2rem",
-        height: "90vh",
-      }}
-    >
+    <Container>
       <Particle />
       <Form>
-        <Row className="justify-content-center">
+        <Row className="justify-content-left">
           <Col md={8}>
             <Form.Group controlId="formName" className="mb-3">
-              <Form.Label className="purple my-3">Get In Touch</Form.Label>
+              <Form.Label className="text-light">Name</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Name"
@@ -28,6 +20,7 @@ const ContactForm = () => {
             </Form.Group>
 
             <Form.Group controlId="formEmail" className="mb-3">
+              <Form.Label className="text-light">Email Address</Form.Label>
               <Form.Control
                 type="email"
                 placeholder="Email"
@@ -37,6 +30,7 @@ const ContactForm = () => {
             </Form.Group>
 
             <Form.Group controlId="formSubject" className="mb-3">
+              <Form.Label className="text-light">Subject</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Subject"
@@ -46,6 +40,7 @@ const ContactForm = () => {
             </Form.Group>
 
             <Form.Group controlId="formMessage" className="mb-3">
+              <Form.Label className="text-light">Message</Form.Label>
               <Form.Control
                 as="textarea"
                 rows={3}

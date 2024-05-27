@@ -741,3 +741,11 @@ button:focus {
 .fork-btn-inner::after {
   display: none !important;
 }
+
+.contact-box {
+  /* max-width: max-content; */
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-items: space-between; */
+  /* align-items: start; */
+}
