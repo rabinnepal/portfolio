@@ -1,6 +1,6 @@
 import ContactForm from "./ContactForm";
 import contactImg from "../../Assets/contact.svg";
-import { Col, Container } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 
 const Contact = () => {
   return (

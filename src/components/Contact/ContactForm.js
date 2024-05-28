@@ -19,11 +19,9 @@ const ContactForm = () => {
       )
       .then(
         (result) => {
-          console.log(result.text);
           setStatusMessage("Message sent successfully!");
         },
         (error) => {
-          console.log(error.text);
           setStatusMessage(
             "Failed to send the message, please try again later."
           );
