@@ -10,11 +10,9 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
 
 function ResumeNew() {
   const [width, setWidth] = useState(1200);
+  const [numPages, setNumPages] = useState(null);
 
-  const [numPages, setNumPages] = useState();
-  const [pageNumber, setPageNumber] = useState(1);
-
-  function onDocumentLoadSuccess(numPages) {
+  function onDocumentLoadSuccess({ numPages }) {
     setNumPages(numPages);
   }
 
@@ -34,24 +32,28 @@ function ResumeNew() {
             variant="primary"
             href={pdf}
             target="_blank"
-            style={{ maxWidth: "250px" }}
+            style={{ maxWidth: "250px", marginBottom: "3rem" }}
           >
             <AiOutlineDownload />
             &nbsp;Download CV
           </Button>
         </Row>
 
-        <Row className="resume">
+        <Row className="justify-content-center">
           <Document
             file={pdf}
-            className="d-flex justify-content-center"
             onLoadSuccess={onDocumentLoadSuccess}
+            className="d-flex flex-column align-items-center"
           >
-            <Page pageNumber={1} scale={width > 786 ? 1.7 : 0.6} />
+            {Array.from(new Array(numPages), (el, index) => (
+              <Page
+                key={`page_${index + 1}`}
+                pageNumber={index + 1}
+                scale={width > 786 ? 1.7 : 0.6}
+                className="pdf-page"
+              />
+            ))}
           </Document>
-          {/* <p>
-            Page {pageNumber} of {numPages}
-          </p> */}
         </Row>
 
         <Row style={{ justifyContent: "center", position: "relative" }}>
@@ -66,6 +68,12 @@ function ResumeNew() {
           </Button>
         </Row>
       </Container>
+
+      <style jsx>{`
+        .pdf-page {
+          margin-bottom: 20px;
+        }
+      `}</style>
     </div>
   );
 }
