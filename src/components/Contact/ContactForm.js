@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Form, Button, Container, Row, Col, Alert } from "react-bootstrap";
 import emailjs from "@emailjs/browser";
-
 import Particle from "../Particle";
 
 const ContactForm = () => {
@@ -33,10 +32,9 @@ const ContactForm = () => {
 
   return (
     <Container>
-      <Particle />
       <Form onSubmit={sendEmail}>
         <Row className="justify-content-left">
-          <Col md={8}>
+          <Col md={12}>
             {statusMessage && (
               <Alert
                 variant={
@@ -108,6 +106,7 @@ const ContactForm = () => {
           </Col>
         </Row>
       </Form>
+      <Particle />
     </Container>
   );
 };

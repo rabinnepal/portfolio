@@ -1,31 +1,38 @@
 import ContactForm from "./ContactForm";
 import contactImg from "../../Assets/contact.svg";
-import { Container } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 
 const Contact = () => {
   return (
-    <Container
-      style={{
-        borderRadius: "22px",
-        transition: "all 0.3s",
-        padding: "2rem",
-        // marginTop: "2rem",
-        // height: "90vh",
-      }}
-    >
-      <div
+    <Container className="contact-section">
+      <Row
         style={{
-          padding: "20px",
-          //   paddingButtom: "40px",
-          textAlign: "right",
+          fontSize: "2rem",
+          textAlign: "center",
+          marginTop: "3rem",
         }}
-        className="img-fluid"
       >
-        <img src={contactImg} alt="about" className="img-fluid" />
-      </div>
-      <div>
-        <ContactForm />
-      </div>
+        <p className="purple">Let's Connect</p>
+      </Row>
+      <Row
+        style={{
+          display: "flex",
+          alignItems: "center",
+        }}
+      >
+        <Col md={6}>
+          <ContactForm />
+        </Col>
+        <Col md={6} style={{ textAlign: "center" }}>
+          <img
+            src={contactImg}
+            alt="contact"
+            className="img-fluid"
+            width={300}
+            height={300}
+          />
+        </Col>
+      </Row>
     </Container>
   );
 };

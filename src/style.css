@@ -742,10 +742,120 @@ button:focus {
   display: none !important;
 }
 
-.contact-box {
-  /* max-width: max-content; */
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* justify-items: space-between; */
-  /* align-items: start; */
+/* --------- */
+/* Contact section */
+/* --------- */
+.contact-section {
+  position: relative !important;
+  padding-top: 150px !important;
+  padding-bottom: 30px !important;
+  background-image: var(--section-background-color) !important;
+  color: white !important;
+}
+
+.contact-header {
+  padding-top: 80px !important;
+  text-align: center;
+}
+
+.contact-heading {
+  font-size: 2.4em !important;
+  color: var(--imp-text-color) !important;
+  margin-bottom: 20px;
+}
+
+.contact-content {
+  text-align: center;
+  padding: 0 20px;
+}
+
+.contact-img {
+  display: block;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.contact-form-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.contact-form {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 5px 3px rgba(119, 53, 136, 0.459);
+}
+
+.contact-form .form-control {
+  background-color: #1e1e1e;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.contact-form .form-control::placeholder {
+  color: #a1a1a1;
+}
+
+.contact-form .form-control:focus {
+  box-shadow: 0 0 5px var(--imp-text-color);
+  border-color: var(--imp-text-color);
+}
+
+.contact-form .form-label {
+  color: #c770f0;
+}
+
+.contact-form .btn {
+  background-color: #623686;
+  color: white;
+  border: none;
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form .btn:hover {
+  background-color: #6d20c5d7;
+}
+
+.contact-form .alert {
+  margin-top: 10px;
+}
+.contact-section {
+  position: relative !important;
+  padding-top: 70px !important;
+  padding-bottom: 70px !important;
+  background-image: var(--section-background-color) !important;
+  color: whitesmoke !important;
+}
+
+.contact-section .purple {
+  color: var(--imp-text-color) !important;
+}
+
+.contact-section img {
+  max-width: 100%;
+  height: 69vh;
+  border-radius: 20px;
+}
+
+.contact-section .form-control {
+  background-color: #1a1a2e;
+  color: whitesmoke;
+  border: none;
+  border-radius: 5px;
+}
+
+.contact-section .btn-outline-secondary {
+  color: var(--imp-text-color);
+  border-color: var(--imp-text-color);
+}
+
+.contact-section .btn-outline-secondary:hover {
+  background-color: var(--imp-text-color);
+  color: #fff;
 }
